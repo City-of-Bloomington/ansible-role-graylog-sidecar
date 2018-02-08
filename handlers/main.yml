@@ -1,0 +1,4 @@
+---
+- name: "graylog_restart"
+  service: name=collector-sidecar state=restarted
+...

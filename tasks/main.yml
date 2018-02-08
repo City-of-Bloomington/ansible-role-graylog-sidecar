@@ -1,0 +1,17 @@
+---
+  # dpkg performs version checking automatically
+- name: "Install .deb for graylog-collector"
+  apt: 
+    deb: "{{ graylog.debfile.url }}"
+    state: present
+
+- name: "Create graylog-collector service"
+  command: graylog-collector-sidecar -service install
+
+- name: "Copy over graylog config"
+  template:
+    src: collector_sidecar.yml 
+    dest: /etc/graylog/collector-sidecar/collector_sidecar.yml
+  notify:
+    - "graylog_restart"
+...
