@@ -1,4 +1,12 @@
 ---
+- name: Install tools to allow transport of apt packages over https
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - software-properties-common
+    - apt-transport-https
+
   # dpkg performs version checking automatically
 - name: "Install .deb for graylog-collector"
   apt: 
