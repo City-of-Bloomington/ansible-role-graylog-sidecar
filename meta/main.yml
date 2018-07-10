@@ -10,7 +10,7 @@ galaxy_info:
       versions:
         - trusty
         - xenial
-
+  role_name: graylog-collector
   galaxy_tags:
     - ubuntu
 
