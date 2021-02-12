@@ -1,6 +1,6 @@
-# City-of-Bloomington.winbind
+# City-of-Bloomington.graylog-sidecar
 
-Install graylog-collector via package, configure to connect to server.
+Install graylog-sidecar via package, configure to connect to server.
 
 ## Dependencies
 

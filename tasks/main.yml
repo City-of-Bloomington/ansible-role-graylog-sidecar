@@ -1,25 +1,30 @@
 ---
 - name: Install tools to allow transport of apt packages over https
   apt:
-    name: "{{ item }}"
+    name: ['software-properties-common', 'apt-transport-https']
     state: present
-  with_items:
-    - software-properties-common
-    - apt-transport-https
+
 
   # dpkg performs version checking automatically
-- name: "Install .deb for graylog-collector"
+- name: "Install .deb for graylog-sidecar"
   apt: 
-    deb: "{{ graylog.debfile.url }}"
+    deb: "{{ graylog_debfile_url }}"
     state: present
 
-- name: "Create graylog-collector service"
-  command: graylog-collector-sidecar -service install
+- name: Install graylog_sidecar
+  apt:
+    name: "graylog-sidecar"
+    state: present
+    update_cache: yes
+
+- name: "Create graylog-sidecar service"
+  command: graylog-sidecar -service install
+  ignore_errors: yes
 
 - name: "Copy over graylog config"
   template:
-    src: collector_sidecar.yml 
-    dest: /etc/graylog/collector-sidecar/collector_sidecar.yml
+    src: sidecar.yml 
+    dest: /etc/graylog/sidecar/sidecar.yml
   notify:
     - "graylog_restart"
 ...
