@@ -2,10 +2,6 @@
 
 Install graylog-sidecar via package, configure to connect to server.
 
-## Dependencies
-
-City-of-Bloomington.linux
-
 ## Copying and License
 
 This material is copyright 2016 City of Bloomington, Indiana
