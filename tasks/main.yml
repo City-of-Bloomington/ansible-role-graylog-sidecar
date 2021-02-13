@@ -4,6 +4,15 @@
     name: ['software-properties-common', 'apt-transport-https']
     state: present
 
+- name: Add Elastic signing key (for FileBeat)
+  ansible.builtin.apt_key:
+    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    state: present
+
+- name: Add Elastic repository (for FileBeat)
+  ansible.builtin.apt_repository:
+    repo: deb https://artifacts.elastic.co/packages/7.x/apt stable main
+    state: present
 
   # dpkg performs version checking automatically
 - name: "Install .deb for graylog-sidecar"
@@ -11,9 +20,9 @@
     deb: "{{ graylog_debfile_url }}"
     state: present
 
-- name: Install graylog_sidecar
+- name: Install graylog_sidecar & FileBeat
   apt:
-    name: "graylog-sidecar"
+    name: ["graylog-sidecar","filebeat"]
     state: present
     update_cache: yes
 
