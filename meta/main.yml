@@ -1,8 +1,8 @@
 ---
 galaxy_info:
-  description: Role for adding graylog-collector to a linux machine
+  description: Role for adding graylog-sidecar to a linux machine
   company: City of Bloomington, Indiana
-  issue_tracker_url: https://github.com/City-of-Bloomington/ansible-role-graylog-collector/issues
+  issue_tracker_url: https://github.com/City-of-Bloomington/ansible-role-graylog-sidecar/issues
   license: GPLv3
   min_ansible_version: 2.4
   platforms:
@@ -11,7 +11,7 @@ galaxy_info:
         - bionic
         - trusty
         - xenial
-  role_name: graylog-collector
+  role_name: graylog-sidecar
   galaxy_tags:
     - ubuntu
 
