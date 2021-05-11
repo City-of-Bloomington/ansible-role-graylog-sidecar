@@ -1,7 +1,9 @@
-server_url: {{ graylog.server_url }}
-server_api_token: {{ graylog.server_api_token }}
+---
+server_url:       "{{ graylog.server_url }}/api"
+server_api_token: "{{ graylog.server_api_token }}"
+node_id:          "{{ inventory_hostname }}"
 update_interval: 10
 tls_skip_verify: false
 send_status: true
 list_log_files:
-node_id: {{ inventory_hostname }}
+...
