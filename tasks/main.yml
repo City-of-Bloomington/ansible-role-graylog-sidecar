@@ -24,11 +24,11 @@
   apt:
     name: ["graylog-sidecar","filebeat"]
     state: present
-    update_cache: yes
+    update_cache: true
 
 - name: "Create graylog-sidecar service"
   command: graylog-sidecar -service install
-  ignore_errors: yes
+  ignore_errors: true
 
 - name: "Copy over graylog config"
   template:
